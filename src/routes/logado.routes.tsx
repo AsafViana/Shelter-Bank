@@ -1,5 +1,7 @@
 import { TransitionSpecs, createStackNavigator } from '@react-navigation/stack'
 import React, { useMemo, lazy } from 'react'
+import Home from '../screen/Home'
+import { useRoute } from '@react-navigation/native'
 
 const { Navigator, Screen } = createStackNavigator()
 
@@ -46,12 +48,10 @@ const CardOptions = {
 	gestureEnabled: false,
 }
 
-const Home = lazy(() => import('../screen/Home'))
-/*const Adicionar = lazy(() => import("../screen/Adicionar"));
-const Info = lazy(() => import("../screen/Info"));
-const Testes = lazy(() => import("../screen/Testes")); */
-
 export function LogadoRoutes() {
+	const router = useRoute()
+	const dados = router.params
+	console.log(dados)
 	const TransitionScreen = {
 		gestureDirection: 'horizontal',
 		transitionSpec: {
@@ -89,17 +89,6 @@ export function LogadoRoutes() {
 	return (
 		<Navigator screenOptions={CardOptions} initialRouteName="Home">
 			<Screen name="Home" component={Home} />
-			{/*<Screen
-        name="Adicionar"
-        component={Adicionar}
-        options={{ tabBarHideOnKeyboard: true, tabBarIcon: "add" }}
-      />
-      <Screen
-        name="Info"
-        component={Info}
-        options={{ tabBarHideOnKeyboard: true, tabBarIcon: "info" }}
-      /> */}
-			{/* <Screen name="Testes" component={Testes} options={{ tabBarHideOnKeyboard: true, tabBarIcon: 'teste' }} /> */}
 		</Navigator>
 	)
 }
