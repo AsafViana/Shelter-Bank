@@ -1,8 +1,8 @@
 interface CardAdolescente {
-	Nome: string
-	Saldo: number
-	Uid: string
-	Email: string
+	nome: string
+	saldo: number
+	uid: string
+	email: string
 }
 
 export{CardAdolescente}

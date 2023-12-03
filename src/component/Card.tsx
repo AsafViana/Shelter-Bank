@@ -7,12 +7,13 @@ import { useNavigation } from '@react-navigation/native'
 import { CardAdolescente } from '../models/cardAdolescentes'
 
 export function index(props: any) {
-	const { Email, Nome, Saldo, Uid } = props
+	const { Email, Nome, Saldo, Uid, onPress } = props
 	const navigation = useNavigation()
-	console.log(props ? true : false)
 
 	function abreviarNome(nomeCompleto: string) {
 		// Divide o nome completo em partes
+		if (!nomeCompleto) return
+
 		const partesDoNome = nomeCompleto.split(' ')
 
 		// Verifica se há mais de um nome
@@ -29,9 +30,20 @@ export function index(props: any) {
 		return nomeAbreviado
 	}
 
+	function formatarStringComQuebraDeLinha(str: string, caracteresPorLinha: Number) {
+		const regex = new RegExp(`.{1,${caracteresPorLinha}}`, 'g')
+		const linhas = str.match(regex)
+
+		if (linhas) {
+			return linhas.join('\n')
+		}
+
+		return str
+	}
+
 	return (
 		<>
-			<Pressable paddingVertical={15}>
+			<Pressable onPress={onPress} paddingVertical={15}>
 				<Box w={'$full'} bg={color.preto} justifyContent="space-between" padding={20} minHeight={100} borderRadius={20} elevation={20} hardShadow="1">
 					<Box justifyContent="space-between" flexDirection="row" alignItems="center">
 						<VStack space="xl">
@@ -56,7 +68,7 @@ export function index(props: any) {
 									Código:
 								</Text>
 								<Text color={color.branco} fontFamily="interLight" fontSize={'$2xl'}>
-									{Uid}
+									{formatarStringComQuebraDeLinha(Uid, 24)}
 								</Text>
 							</VStack>
 							<VStack space="md">

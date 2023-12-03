@@ -1,6 +1,8 @@
-import { TransitionSpecs, createStackNavigator } from '@react-navigation/stack'
+import { StackNavigationOptions, TransitionSpecs, createStackNavigator } from '@react-navigation/stack'
 import React, { useMemo, lazy } from 'react'
 import Home from '../screen/Home'
+import Transferencia from '../screen/Transferencia'
+import QrCode from '../screen/QrCode'
 import { useRoute } from '@react-navigation/native'
 
 const { Navigator, Screen } = createStackNavigator()
@@ -80,15 +82,21 @@ export function LogadoRoutes() {
 		},
 	}
 
-	const CardOptions = {
+	const CardOptions: StackNavigationOptions = {
 		cardStyle: { backgroundColor: 'transparent' },
 		...TransitionScreen,
-		headerShown: false,
-		gestureEnabled: false,
+		headerTitle: '',
+		headerTransparent: true,
+		headerBackTitleVisible: false, // Esconde o título padrão do botão de voltar
+		headerLeftContainerStyle: {
+			marginLeft: 20, // Ajusta a posição do botão de voltar
+		},
 	}
 	return (
 		<Navigator screenOptions={CardOptions} initialRouteName="Home">
-			<Screen name="Home" component={Home} />
+			<Screen name="Home" component={Home} options={{ headerShown: false }} />
+			<Screen name="Transferencia" component={Transferencia} />
+			<Screen name="QrCode" component={QrCode} />
 		</Navigator>
 	)
 }

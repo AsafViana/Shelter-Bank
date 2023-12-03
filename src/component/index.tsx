@@ -1,5 +1,7 @@
 import {index as Card} from './Card'
+import Contador from './Contador'
 
 export{
-	Card
+	Card,
+	Contador
 }

@@ -62,60 +62,60 @@ export default function index(props: any) {
 	}
 
 	return (
-		<Box bg={color.preto} flex={1} justifyContent="center" alignItems="center" paddingHorizontal="$12">
-			<Box padding={'$7'} sx={{ h: Altura, w: Largura }} bg={color.amarelo} borderRadius="$3xl">
-				<Text fontSize="$4xl" color={color.preto} fontFamily="interBlack" paddingTop="$10">
-					Login
-				</Text>
-				<VStack flex={1} space="3xl" h="$80" alignItems="center" justifyContent="center">
-					{/* Usuario */}
-					<FormControl size="lg" isDisabled={false} isInvalid={Invalido} isReadOnly={false}>
-						<FormControlLabel mb="$1">
-							<FormControlLabelText fontFamily="interBlack" color={color.preto}>
-								E-mail
-							</FormControlLabelText>
-						</FormControlLabel>
-						<Input w="$full" h={'$12'} borderColor={color.vazio} borderRadius="$2xl">
-							<InputField value={Email} onChangeText={setEmail} borderColor={color.preto} borderWidth="$2" color={color.preto} fontFamily="interMedium" borderRadius="$2xl" style={{ fontFamily: 'interMedium' }} type="text" placeholder="Fulano" />
-						</Input>
-					</FormControl>
+			<Box bg={color.preto} flex={1} justifyContent="center" alignItems="center" paddingHorizontal="$12">
+				<Box padding={'$7'} sx={{ h: Altura, w: Largura }} bg={color.amarelo} borderRadius="$3xl">
+					<Text fontSize="$4xl" color={color.preto} fontFamily="interBlack" paddingTop="$10">
+						Login
+					</Text>
+					<VStack flex={1} space="3xl" h="$80" alignItems="center" justifyContent="center">
+						{/* Usuario */}
+						<FormControl size="lg" isDisabled={false} isInvalid={Invalido} isReadOnly={false}>
+							<FormControlLabel mb="$1">
+								<FormControlLabelText fontFamily="interBlack" color={color.preto}>
+									E-mail
+								</FormControlLabelText>
+							</FormControlLabel>
+							<Input w="$full" h={'$12'} borderColor={color.vazio} borderRadius="$2xl">
+								<InputField value={Email} onChangeText={setEmail} borderColor={color.preto} borderWidth="$2" color={color.preto} fontFamily="interMedium" borderRadius="$2xl" style={{ fontFamily: 'interMedium' }} type="text" placeholder="Fulano" />
+							</Input>
+						</FormControl>
 
-					{/* Senha */}
-					<FormControl size="md" isDisabled={false} isInvalid={Invalido} isReadOnly={false}>
-						<FormControlLabel mb="$1">
-							<FormControlLabelText fontFamily="interBlack" color={color.preto}>
-								Senha
-							</FormControlLabelText>
-						</FormControlLabel>
-						<Input w="$64" h={'$12'} borderColor={color.vazio} borderRadius="$2xl">
-							<InputField value={Password} onChangeText={setPassword} borderColor={color.preto} borderWidth="$2" color={color.preto} borderRadius="$2xl" style={{ fontFamily: 'interMedium' }} type="password" placeholder="******" />
-						</Input>
-						<Button onPress={() => esqueciSenha(Email)} variant="link" alignSelf="flex-end">
-							<ButtonText
-								fontWeight="$medium"
-								fontSize="$sm"
-								fontFamily="interBlack"
-								color="$textLight900"
-								sx={{
-									_dark: {
-										color: '$textDark300',
-									},
-								}}>
-								Esqueceu a senha?
-							</ButtonText>
-						</Button>
-					</FormControl>
+						{/* Senha */}
+						<FormControl size="md" isDisabled={false} isInvalid={Invalido} isReadOnly={false}>
+							<FormControlLabel mb="$1">
+								<FormControlLabelText fontFamily="interBlack" color={color.preto}>
+									Senha
+								</FormControlLabelText>
+							</FormControlLabel>
+							<Input w="$64" h={'$12'} borderColor={color.vazio} borderRadius="$2xl">
+								<InputField value={Password} onChangeText={setPassword} borderColor={color.preto} borderWidth="$2" color={color.preto} borderRadius="$2xl" style={{ fontFamily: 'interMedium' }} type="password" placeholder="******" />
+							</Input>
+							<Button onPress={() => esqueciSenha(Email)} variant="link" alignSelf="flex-end">
+								<ButtonText
+									fontWeight="$medium"
+									fontSize="$sm"
+									fontFamily="interBlack"
+									color="$textLight900"
+									sx={{
+										_dark: {
+											color: '$textDark300',
+										},
+									}}>
+									Esqueceu a senha?
+								</ButtonText>
+							</Button>
+						</FormControl>
 
-					{/* Enviar */}
-					<FormControl w="$64">
-						<Button onPress={handleEnviar} action="primary" size="sm" bgColor={color.preto} borderRadius="$xl">
-							<ButtonText fontFamily="interBlack" fontSize="$lg" alignSelf="center">
-								Entrar
-							</ButtonText>
-						</Button>
-					</FormControl>
-				</VStack>
+						{/* Enviar */}
+						<FormControl w="$64">
+							<Button onPress={handleEnviar} action="primary" size="sm" bgColor={color.preto} borderRadius="$xl">
+								<ButtonText fontFamily="interBlack" fontSize="$lg" alignSelf="center">
+									Entrar
+								</ButtonText>
+							</Button>
+						</FormControl>
+					</VStack>
+				</Box>
 			</Box>
-		</Box>
 	)
 }

@@ -2,7 +2,7 @@ import {firebaseConfig} from '../../env.json'
 import { initializeApp } from 'firebase/app'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, signInAnonymously, setPersistence, browserSessionPersistence, Persistence } from 'firebase/auth'
 import {getDatabase, ref, set, onValue, child, get} from 'firebase/database'
-import { collection, getDocs, getFirestore, addDoc } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, addDoc, doc, updateDoc } from 'firebase/firestore'
 
 
 const app = initializeApp(firebaseConfig)
@@ -34,6 +34,7 @@ export {
 	NONE,
 	SESSION,
 	LOCAL,
-	setPersistence
+	setPersistence,
+	doc
 }
 

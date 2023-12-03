@@ -28,7 +28,7 @@ export default function index(props: any) {
 			const email = await AsyncStorage.getItem('email')
 			console.log([senha, email])
 
-			if (senha === null || email === null) {
+			if (senha == null || email == null) {
 				navigation.navigate('Deslogado')
 			} else {
 				if (email === 'shelteradolescentes@gmail.com') {
@@ -38,7 +38,7 @@ export default function index(props: any) {
 				} else {
 					signInWithEmailAndPassword(auth, email, senha).then((userCredential) => {
 						navigation.navigate('Logado')
-					})
+					}).catch(console.log)
 				}
 			}
 		} catch (e) {

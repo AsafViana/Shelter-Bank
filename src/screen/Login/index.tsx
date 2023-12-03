@@ -33,7 +33,7 @@ export default function index(props: any) {
 			setInvalido(true)
 		}
 	}
-	
+
 	const setData = async (key: string, value: any) => {
 		try {
 			await AsyncStorage.setItem(key, value)
@@ -81,10 +81,5 @@ export default function index(props: any) {
 		}
 	}
 
-	switch (Platform.OS) {
-		case 'web':
-			return <Web invalido={Invalido} loginFunc={handlerLogin} esqueciSenha={handlerEsqueciSenha} />
-		default:
-			return <Android invalido={Invalido} loginFunc={handlerLogin} esqueciSenha={handlerEsqueciSenha} />
-	}
+	return <Web invalido={Invalido} loginFunc={handlerLogin} esqueciSenha={handlerEsqueciSenha} />
 }

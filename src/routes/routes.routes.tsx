@@ -10,7 +10,7 @@ const { Screen, Navigator } = createStackNavigator()
 
 export function RoutesRoutes() {
 	return (
-		<Navigator initialRouteName="SplashScreen" screenOptions={{headerShown: false}}>
+		<Navigator initialRouteName="SplashScreen" screenOptions={{headerShown: false, gestureEnabled: false}}>
 			<Screen name="SplashScreen" component={Splash} />
 			<Screen name="Logado" component={LogadoRoutes} />
 			<Screen name="Deslogado" component={DeslogadoRoutes} />
